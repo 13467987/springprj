@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jscompany.mapper.BoardMapper">
+
+ <insert id="create">
+ insert into board (userID,title, content,regDate) 
+ values(#{userID},#{title},#{content},now())
+ </insert>
+
+ <select id="read" resultType="com.jscompany.domain.BoardVO">
+ select 
+   no.userID,title,content,regDate,hit
+ from 
+   board
+ where no = #{no}
+ </select>
+
+ <update id="update">
+ update board set title =#{title}, content =#{content} 
+ where no = #{no}
+ </update>
+
+ <delete id="delete">
+ delete from board where no = #{no}
+ </delete>
+
+ <select id="listAll" resultType="com.jscompany.domain.BoardVO">
+ <![CDATA[
+ select 
+   no, userID,title, content,, regdate, hit 
+ from 
+   board 
+ where no > 0 
+ order by no desc, regdate desc
+ ]]>  
+ </select>
+ 
+  
+</mapper>
