@@ -100,7 +100,7 @@
 							name="word">
 					</div>
 					<input type="submit" class="btn btn-default" value="검색"> <a
-						href="board.do?action=boardWrite" class="btn btn-default">글쓰기</a>
+						href="/board/write" class="btn btn-default">글쓰기</a>
 				</form>
 			</div>
 		</div>
