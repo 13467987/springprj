@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
  <select id="read" resultType="BoardVO">
  select 
-   no.userID,title,content,regDate,hit
+   no,userID,title,content,regDate,hit
  from 
    board
  where no = #{no}
@@ -30,11 +30,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  <select id="listAll" resultType="BoardVO">
  <![CDATA[
  select 
-   no, userID,title, content,, regdate, hit 
+   no, userID,title, content, regDate, hit 
  from 
    board 
  where no > 0 
- order by no desc, regdate desc
+ order by no desc, regDate desc
  ]]>  
  </select>
  

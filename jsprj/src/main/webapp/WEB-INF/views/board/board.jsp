@@ -31,14 +31,14 @@
 							<th>조회수</th>
 						</tr>
 					<tbody>
-						<c:forEach var="vos" items="${vos}">
+						<c:forEach var="list" items="${list}">
 							<tr>
-								<td>${vos.no}</td>
-								<td><a href="/board.do?no=${vos.no}">${vos.title}</a></td>
-								<td>${vos.userID}</td>
-								<td><fmt:formatDate value="${vos.regDate}"
+								<td>${list.no}</td>
+								<td><a href="/board/read?no=${list.no}">${list.title}</a></td>
+								<td>${list.userID}</td>
+								<td><fmt:formatDate value="${list.regDate}"
 										pattern="yy-MM-dd" /></td>
-								<td>${vos.hit}</td>
+								<td>${list.hit}</td>
 							</tr>
 						</c:forEach>
 					</tbody>
