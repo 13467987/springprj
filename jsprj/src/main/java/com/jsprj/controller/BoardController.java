@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jsprj.service.BoardService;
 import com.jsprj.vo.BoardVO;
@@ -34,11 +35,6 @@ public class BoardController {
 	
 	@RequestMapping(value="/write",method=RequestMethod.POST)
 	public String writePOST(BoardVO vo, Model model){
-		System.out.println(vo.getContent());
-		System.out.println(vo.getTitle());
-		System.out.println(vo.getUserID());
-		System.out.println(vo.getHit());
-		System.out.println(vo.getRegDate());
 		service.create(vo);
 		
 		return "redirect:/board/list";
@@ -47,5 +43,22 @@ public class BoardController {
 	public void read(@RequestParam("no") int no, Model model){
 		
 		model.addAttribute(service.read(no));
+	}
+	@RequestMapping(value="/modify",method=RequestMethod.GET)
+	public void modifyGET(@RequestParam("no") int no,Model model){
+		model.addAttribute(service.read(no));
+	}	
+	@RequestMapping(value="/modify",method=RequestMethod.POST)
+	public String modifyPOST(BoardVO vo,RedirectAttributes rttr){
+		
+		service.update(vo);
+		
+		return "redirect:/board/list";
+	}
+	
+	@RequestMapping(value="delete")
+	public String delete(@RequestParam("no") int no){
+		service.delete(no);
+		return "redirect:/board/list";
 	}
 }

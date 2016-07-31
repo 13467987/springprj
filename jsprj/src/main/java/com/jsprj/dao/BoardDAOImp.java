@@ -45,5 +45,11 @@ public class BoardDAOImp implements BoardDAO{
 		return session.selectList(namespace+".listAll");
 	}
 
+	@Override
+	public List<BoardVO> listPage(int page) {
+		// TODO 페이지작업
+		return null;
+	}
+
 	
 }
