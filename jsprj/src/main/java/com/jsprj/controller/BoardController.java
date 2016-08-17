@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.jsprj.dao.Criteria;
+import com.jsprj.dao.PageMaker;
 import com.jsprj.service.BoardService;
 import com.jsprj.vo.BoardVO;
 
@@ -56,9 +58,24 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	@RequestMapping(value="delete")
+	@RequestMapping(value="/delete")
 	public String delete(@RequestParam("no") int no){
 		service.delete(no);
 		return "redirect:/board/list";
+	}
+	
+	@RequestMapping(value="/listCri",method=RequestMethod.GET)
+	public void listAll(Criteria cri, Model model){
+		model.addAttribute("list",service.listCriteria(cri));
+	}
+	
+	@RequestMapping(value="/listPage",method=RequestMethod.GET)
+	public void listPage(Criteria cri,Model model){
+		model.addAttribute("list",service.listCriteria(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCnt(service.listCountPaging(cri));
+		model.addAttribute("pageMaker",pageMaker);
+		
 	}
 }

@@ -37,6 +37,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  order by no desc, regDate desc
  ]]>  
  </select>
+ <select id="listPage" resultType="BoardVO">
+ <![CDATA[
+ 	select no,userID,title,content,regDate,hit from board
+ 	where no>0
+ 	order by no desc,regDate desc
+ 	limit #{page},10
+ ]]>
  
+ </select>
+ 
+ <select id="listCriteria" resultType="BoardVO">
+ 	<![CDATA[
+ 		select
+ 		no,userID,title,content,regDate,hit from board
+ 		where no>0
+ 		order by no desc, regDate desc
+ 		limit #{pageStart},#{boardCnt}
+ 	]]>
+ 	
+ </select>
+ <select id="countPaging" resultType="int">
+ 	<![CDATA[
+ 		select count(no) from board where no>0
+ 	]]>
+ </select>
   
 </mapper>

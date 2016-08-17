@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.jsprj.dao.BoardDAO;
+import com.jsprj.dao.Criteria;
 import com.jsprj.vo.BoardVO;
 
 @Service
@@ -39,6 +40,16 @@ public class BoardServiceImp implements BoardService{
 	@Override
 	public List<BoardVO> listAll() {
 		return dao.listAll();
+	}
+
+	@Override
+	public List<BoardVO> listCriteria(Criteria cri) {
+		return dao.listCriteria(cri);
+	}
+
+	@Override
+	public int listCountPaging(Criteria cri) {
+		return dao.countPaging(cri);
 	}
 
 }

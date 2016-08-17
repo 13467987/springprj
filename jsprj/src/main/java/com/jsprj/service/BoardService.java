@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.jsprj.dao.Criteria;
 import com.jsprj.vo.BoardVO;
 
 public interface BoardService {
@@ -17,5 +18,9 @@ public interface BoardService {
 	public void delete(int no);
 	
 	public List<BoardVO> listAll();
+	
+	public List<BoardVO> listCriteria(Criteria cri);
+	
+	public int listCountPaging(Criteria cri);
 	
 }

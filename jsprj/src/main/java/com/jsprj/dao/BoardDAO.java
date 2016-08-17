@@ -17,4 +17,9 @@ public interface BoardDAO {
 	public List<BoardVO> listAll();
 	
 	public List<BoardVO> listPage(int page);
+	
+	public List<BoardVO> listCriteria(Criteria cri);
+	
+	public int countPaging(Criteria cri);
+	
 }
