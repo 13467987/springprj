@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.jsprj.dao.BoardDAO;
 import com.jsprj.dao.Criteria;
+import com.jsprj.dao.SearchCriteria;
 import com.jsprj.vo.BoardVO;
 
 @Service
@@ -50,6 +51,16 @@ public class BoardServiceImp implements BoardService{
 	@Override
 	public int listCountPaging(Criteria cri) {
 		return dao.countPaging(cri);
+	}
+
+	@Override
+	public List<BoardVO> listSearchCriteria(SearchCriteria cri) {
+		return dao.listSearch(cri);
+	}
+
+	@Override
+	public int listSearchCount(SearchCriteria cri) {
+		return dao.listSearchCount(cri);
 	}
 
 }

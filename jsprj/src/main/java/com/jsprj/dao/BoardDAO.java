@@ -22,4 +22,7 @@ public interface BoardDAO {
 	
 	public int countPaging(Criteria cri);
 	
+	public List<BoardVO> listSearch(SearchCriteria cri);
+	
+	public int listSearchCount(SearchCriteria cri);
 }

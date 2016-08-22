@@ -65,5 +65,15 @@ public class BoardDAOImp implements BoardDAO{
 		return session.selectOne(namespace+".countPaging",cri);
 	}
 
+	@Override
+	public List<BoardVO> listSearch(SearchCriteria cri) {
+		return session.selectList(namespace+".listSearch",cri);
+	}
+
+	@Override
+	public int listSearchCount(SearchCriteria cri) {
+		return session.selectOne(namespace+".listSearchCount",cri);
+	}
+
 	
 }

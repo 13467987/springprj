@@ -1,5 +1,8 @@
 package com.jsprj.dao;
 
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
+
 public class PageMaker {
 	private int totalCnt;
 	private int startPage;
@@ -34,6 +37,18 @@ public class PageMaker {
 		next = endPage *cri.getBoardCnt() >= totalCnt ? false:true;
 		
 		System.out.println(endPage);
+	}
+	
+	
+	//uri 기능 검색점..
+	public String makeSearch(int page){
+		UriComponents uricomponents = UriComponentsBuilder.newInstance()
+				.queryParam("page", page)
+				.queryParam("boardCnt",cri.getBoardCnt())
+				.queryParam("searchType",(( SearchCriteria)cri).getSearchType())
+				.queryParam("keyword", ((SearchCriteria)cri).getKeyword())
+				.build();
+		return uricomponents.toUriString();
 	}
 
 	public int getStartPage() {
