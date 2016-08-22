@@ -85,16 +85,17 @@
 	</div>
 </body>
 
-<!-- 활성화 작업 -->
+<!-- 활성화 작업 makeQuery가 없어서 인데... make -->
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#menu li:nth-child(2)").addClass("active");
 
 		$("#searchBtn").on("click",function(event){
-			self.location = "list"+'${pageMaker.makeQuery(1)}'
+			self.location = "list"+"${pageMaker.makeSearch(1)}"
 			+"&searchType="
 			+$("select option:selected").val()
-			+"&keyword=" +$("#keywordInput").val();
+			+"&keyword="+$("#keywordInput").val()
+			
 	});
 	});
 	

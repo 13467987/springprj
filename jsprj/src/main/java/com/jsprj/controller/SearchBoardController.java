@@ -20,7 +20,7 @@ public class SearchBoardController {
 	private BoardService service;
 	
 	@RequestMapping(value="/list",method=RequestMethod.GET)
-	public void listPage(@ModelAttribute("cri") SearchCriteria cri,Model model){
+	public void listPage(@ModelAttribute("cri")SearchCriteria cri,Model model){
 		model.addAttribute("list",service.listSearchCriteria(cri));
 		
 		PageMaker pageMaker = new PageMaker();

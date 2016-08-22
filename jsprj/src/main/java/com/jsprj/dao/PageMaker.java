@@ -36,7 +36,6 @@ public class PageMaker {
 		
 		next = endPage *cri.getBoardCnt() >= totalCnt ? false:true;
 		
-		System.out.println(endPage);
 	}
 	
 	
@@ -46,8 +45,9 @@ public class PageMaker {
 				.queryParam("page", page)
 				.queryParam("boardCnt",cri.getBoardCnt())
 				.queryParam("searchType",(( SearchCriteria)cri).getSearchType())
-				.queryParam("keyword", ((SearchCriteria)cri).getKeyword())
+				.queryParam("keyword",((SearchCriteria)cri).getKeyword())
 				.build();
+		System.out.println(((SearchCriteria)cri).getKeyword());
 		return uricomponents.toUriString();
 	}
 

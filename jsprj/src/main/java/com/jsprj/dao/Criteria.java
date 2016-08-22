@@ -39,10 +39,9 @@ public class Criteria {
 			return boardCnt;
 		}
 		
-		
-		//뭔진 모르겠네 문자열 반환???????????????????
+
 		public String toString(){
-			return "Criteria [page="+page+", boardCnt="+boardCnt+"]";
+			return "Criteria [page="+page+",boardCnt="+boardCnt+"]";
 		}
 		
 		
