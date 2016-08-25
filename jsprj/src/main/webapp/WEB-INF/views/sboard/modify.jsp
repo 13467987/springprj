@@ -22,6 +22,10 @@
 			<div id="content">
 				<form action="/board/modify" method="post">
 					<input type="hidden" name="no" value="${boardVO.no}">
+					<input type="hidden" name="page" value="${cri.page}">
+					<input type="hidden" name="boardCnt" value="${cri.boardCnt}">
+					<input type="hidden" name="searchType" value="${cri.searchType}">
+					<input type="hidden" name="keyword" value="${cri.keyword}">
 					제목:<input type="text" class="form-control" placeholder="Text input" name="title" value="${boardVO.title}"><br> 내용:<br>
 					<textarea id="ir1" cols="10" name="content" style="width: 100%">${boardVO.content}</textarea>
 					<input type="button" onclick="submitContents(this);" class="btn btn-default" value="수정" /><a class="btn btn-default" href="/board.do">목록으로</a>

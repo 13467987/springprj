@@ -38,8 +38,14 @@ public class PageMaker {
 		
 	}
 	
-	
-	//uri 기능 검색점..
+	public String makeQuery(int page){
+		UriComponents uriComponents = UriComponentsBuilder.newInstance()
+				.queryParam("page",page)
+				.queryParam("boardCnt",cri.getBoardCnt())
+				.build();
+		return uriComponents.toUriString();
+	}
+
 	public String makeSearch(int page){
 		UriComponents uricomponents = UriComponentsBuilder.newInstance()
 				.queryParam("page", page)

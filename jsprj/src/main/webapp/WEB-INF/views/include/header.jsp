@@ -7,6 +7,18 @@
  	position: absolute;
  	right: 20px;
  	}
+	#btSelect{
+	width:150px;
+	margin-right: 10px;
+	}
+	.btform{
+	width:300px;
+	margin-right: 10px;
+	float: left;
+	}
+	.btBtn{
+	width:70px;
+	} 	
  </style>
 <div class="gnb">
 <c:if test="${userID ne null}">${userID}님 반갑습니다.
