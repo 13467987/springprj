@@ -82,7 +82,7 @@
 			formObj.submit();
 		})
 		$("#delete").on("click",function(){
-			formObj.attr("action","/board/delete");
+			formObj.attr("action","/sboard/delete");
 			formObj.submit();	})
 			
 	});
