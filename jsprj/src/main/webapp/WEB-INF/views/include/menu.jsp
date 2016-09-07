@@ -20,7 +20,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1 myTab">
       <ul class="nav navbar-nav" id="menu">
         <li><a href="/index">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="/board/listPage">Board</a></li>
+        <li><a href="/sboard/list">Board</a></li>
         <li><a href="/customer">QnA</a></li>
       </ul>
     </div>

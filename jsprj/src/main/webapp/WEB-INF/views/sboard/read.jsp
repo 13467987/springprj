@@ -22,6 +22,10 @@
 			<div id="content">
 				<form role="form" method="post">
 					<input type="hidden" name="no" value="${boardVO.no}">
+					<input type="hidden" name="page" value="${cri.page}">
+					<input type="hidden" name="boardCnt" value="${cri.boardCnt}">
+					<input type="hidden" name="searchType" value="${cri.searchType}">
+					<input type="hidden" name="keyword" value="${cri.keyword}"> 
 				</form>
 				<table class="table">
 					<thead>
@@ -73,12 +77,12 @@
 		console.log(formObj);
 		
 		$("#modify").on("click",function(){
-			formObj.attr("action","/board/modify");
+			formObj.attr("action","/sboard/modify");
 			formObj.attr("method","get");
 			formObj.submit();
 		})
 		$("#delete").on("click",function(){
-			formObj.attr("action","/board/delete");
+			formObj.attr("action","/sboard/delete");
 			formObj.submit();	})
 			
 	});

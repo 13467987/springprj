@@ -36,18 +36,24 @@ public class PageMaker {
 		
 		next = endPage *cri.getBoardCnt() >= totalCnt ? false:true;
 		
-		System.out.println(endPage);
 	}
 	
-	
-	//uri 기능 검색점..
+	public String makeQuery(int page){
+		UriComponents uriComponents = UriComponentsBuilder.newInstance()
+				.queryParam("page",page)
+				.queryParam("boardCnt",cri.getBoardCnt())
+				.build();
+		return uriComponents.toUriString();
+	}
+
 	public String makeSearch(int page){
 		UriComponents uricomponents = UriComponentsBuilder.newInstance()
 				.queryParam("page", page)
 				.queryParam("boardCnt",cri.getBoardCnt())
 				.queryParam("searchType",(( SearchCriteria)cri).getSearchType())
-				.queryParam("keyword", ((SearchCriteria)cri).getKeyword())
+				.queryParam("keyword",((SearchCriteria)cri).getKeyword())
 				.build();
+		System.out.println(((SearchCriteria)cri).getKeyword());
 		return uricomponents.toUriString();
 	}
 
