@@ -23,6 +23,7 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 		</bean>
+	<!-- @repository  어노테이션을 해주더라도 스캔을 안할수가 있기때문에 스캔 설정을 해준다 -->
 	<context:component-scan base-package="com.jsprj.dao"></context:component-scan>
 	<context:component-scan base-package="com.jsprj.service"></context:component-scan>
 	
